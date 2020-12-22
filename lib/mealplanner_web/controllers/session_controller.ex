@@ -5,6 +5,18 @@ defmodule MealplannerWeb.SessionController do
     render(conn, "new.html")
   end
 
+  def show(conn, _) do
+    if get_session(conn, :logged_in) == "yes" do
+      conn
+      |> redirect(to: "/recipes")
+      |> halt()
+    else
+      conn
+      |> redirect(to: "/sessions/new")
+      |> halt()
+    end
+  end
+
   def create(conn, %{"credentials" => %{"password_key" => password_key}}) do
     if password_key == Application.get_env(:mealplanner, :password_key) do
       conn

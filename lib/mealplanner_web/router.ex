@@ -17,7 +17,7 @@ defmodule MealplannerWeb.Router do
   scope "/", MealplannerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", SessionController, :show
     resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
   end
 
