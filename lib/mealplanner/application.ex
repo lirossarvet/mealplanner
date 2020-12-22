@@ -19,6 +19,13 @@ defmodule Mealplanner.Application do
       # {Mealplanner.Worker, arg}
     ]
 
+    OpencensusPhoenix.Telemetry.setup([:phoenix, :endpoint])
+
+    OpencensusEcto.setup([:mealplanner, :repo, :query],
+      time_unit: :millisecond,
+      span_name: fn _ -> "ecto.query" end
+    )
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Mealplanner.Supervisor]
