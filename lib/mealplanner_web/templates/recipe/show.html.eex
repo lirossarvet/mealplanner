@@ -13,8 +13,8 @@
   </li>
 
   <li>
-    <strong>Url:</strong>
-    <%= @recipe.url %>
+    <strong>Source:</strong>
+    <%= @recipe.source %>
   </li>
 
   <li>

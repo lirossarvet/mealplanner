@@ -13,7 +13,7 @@
 <%= for recipe <- @recipes do %>
     <tr>
       <td><%= recipe.title %></td>
-      <td><%= recipe.url %></td>
+      <td><%= recipe.source %></td>
 
       <td>
         <span><%= link "Show", to: Routes.recipe_path(@conn, :show, recipe) %></span>

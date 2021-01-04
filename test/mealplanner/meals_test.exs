@@ -10,13 +10,13 @@ defmodule Mealplanner.MealsTest do
       directions: "some directions",
       ingredients: "some ingredients",
       title: "some title",
-      url: "some url"
+      source: "some url"
     }
     @update_attrs %{
       directions: "some updated directions",
       ingredients: "some updated ingredients",
       title: "some updated title",
-      url: "some updated url"
+      source: "some updated url"
     }
     @invalid_attrs %{directions: nil, ingredients: nil, title: nil, url: nil}
 
@@ -44,7 +44,7 @@ defmodule Mealplanner.MealsTest do
       assert recipe.directions == "some directions"
       assert recipe.ingredients == "some ingredients"
       assert recipe.title == "some title"
-      assert recipe.url == "some url"
+      assert recipe.source == "some url"
     end
 
     test "create_recipe/1 with invalid data returns error changeset" do
@@ -57,7 +57,7 @@ defmodule Mealplanner.MealsTest do
       assert recipe.directions == "some updated directions"
       assert recipe.ingredients == "some updated ingredients"
       assert recipe.title == "some updated title"
-      assert recipe.url == "some updated url"
+      assert recipe.source == "some updated url"
     end
 
     test "update_recipe/2 with invalid data returns error changeset" do
