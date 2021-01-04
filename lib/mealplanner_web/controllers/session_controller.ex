@@ -23,7 +23,6 @@ defmodule MealplannerWeb.SessionController do
       |> put_flash(:info, "Welcome back!")
       |> put_session(:logged_in, "yes")
       |> configure_session(renew: true)
-      # Figure out a better home page
       |> redirect(to: "/recipes")
     else
       conn

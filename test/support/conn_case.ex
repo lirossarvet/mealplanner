@@ -28,6 +28,10 @@ defmodule MealplannerWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint MealplannerWeb.Endpoint
+
+      def login_conn(conn) do
+        Plug.Test.init_test_session(conn, %{"logged_in" => "yes"})
+      end
     end
   end
 
