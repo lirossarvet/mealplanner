@@ -16,7 +16,9 @@ defmodule MealplannerWeb.TracePlugTest do
       assert MealplannerWeb.TracePlug.span_name(delete_conn, []) == "DELETE /recipes/:recipes_id"
 
       unknown_conn = %{conn | method: "GET", request_path: "/recipes/122/safety/whatever"}
-      assert MealplannerWeb.TracePlug.span_name(unknown_conn, []) == "GET /recipes/122/safety/whatever"
+
+      assert MealplannerWeb.TracePlug.span_name(unknown_conn, []) ==
+               "GET /recipes/122/safety/whatever"
 
       root_conn = %{conn | method: "GET", request_path: "/"}
       assert MealplannerWeb.TracePlug.span_name(root_conn, []) == "GET /"
