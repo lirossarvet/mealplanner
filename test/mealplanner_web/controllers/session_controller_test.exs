@@ -31,7 +31,7 @@ defmodule MealplannerWeb.SessionControllerTest do
 
       assert redirected_to(conn) == Routes.recipe_path(conn, :index)
       assert get_flash(conn, :info) == "Welcome back!"
-      assert Plug.Conn.get_session(conn, :logged_in) == "yes"
+      assert get_session(conn, :logged_in) == "yes"
     end
 
     test "renders a 401 page", %{conn: conn} do
@@ -39,10 +39,16 @@ defmodule MealplannerWeb.SessionControllerTest do
 
       assert html_response(conn, 401) =~ "Invalid password"
       assert get_flash(conn, :error) == "Unknown credentials"
-      assert is_nil(Plug.Conn.get_session(conn, :logged_in))
+      assert is_nil(get_session(conn, :logged_in))
     end
   end
 
   describe "delete/2" do
+    test "deletes the logged_in session", %{conn: conn} do
+      conn = login_conn(conn) |> delete(Routes.session_path(conn, :delete))
+
+      assert Map.get(conn.private, :plug_session_info) == :drop
+      assert redirected_to(conn) == Routes.session_path(conn, :new)
+    end
   end
 end
