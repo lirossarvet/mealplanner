@@ -3,7 +3,7 @@ defmodule MealplannerWeb.AuthPlugTest do
 
   describe "authenticate_user/2" do
     test "with session set, renders page", %{conn: conn} do
-      conn = Plug.Test.init_test_session(conn, %{"logged_in" => "yes"}) |> get("/recipes")
+      conn = login_conn(conn) |> get("/recipes")
 
       assert html_response(conn, 200) =~ "Listing Recipes"
     end
