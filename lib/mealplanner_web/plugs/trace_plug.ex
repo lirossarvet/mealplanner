@@ -1,4 +1,4 @@
-defmodule Mealplanner.TracePlug do
+defmodule MealplannerWeb.TracePlug do
   use Opencensus.Plug.Trace, attributes: %{"app.resource_id" => :add_resource_id}
 
   # This does not playy well with nested resources.
@@ -17,10 +17,8 @@ defmodule Mealplanner.TracePlug do
 
       # Unknown or got to a nested resource
       _ ->
-        request_path
+        "#{method} #{request_path}"
     end
-
-    "#{method} #{resource}/:#{resource}_id"
   end
 
   def add_resource_id(%Plug.Conn{request_path: request_path}) do
