@@ -4,7 +4,10 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Url</th>
+      <th>Description</th>
+      <th>Source</th>
+      <th>Ingredients</th>
+      <th>Directions</th>
 
       <th></th>
     </tr>
@@ -13,7 +16,10 @@
 <%= for recipe <- @recipes do %>
     <tr>
       <td><%= recipe.title %></td>
+      <td><%= recipe.description %></td>
       <td><%= recipe.source %></td>
+      <td><%= recipe.ingredients %></td>
+      <td><%= recipe.directions %></td>
 
       <td>
         <span><%= link "Show", to: Routes.recipe_path(@conn, :show, recipe) %></span>

@@ -1,19 +1,14 @@
 defmodule MealplannerWeb.RecipeControllerTest do
   use MealplannerWeb.ConnCase
 
-  alias Mealplanner.Meals
+  alias Mealplanner.Food
 
-  @create_attrs %{title: "this is beautiful"}
-  @update_attrs %{
-    directions: "some updated directions",
-    ingredients: "some updated ingredients",
-    title: "some updated title",
-    url: "some updated url"
-  }
-  @invalid_attrs %{title: nil}
+  @create_attrs %{description: "some description", directions: "some directions", ingredients: "some ingredients", source: "some source", title: "some title"}
+  @update_attrs %{description: "some updated description", directions: "some updated directions", ingredients: "some updated ingredients", source: "some updated source", title: "some updated title"}
+  @invalid_attrs %{description: nil, directions: nil, ingredients: nil, source: nil, title: nil}
 
   def fixture(:recipe) do
-    {:ok, recipe} = Meals.create_recipe(@create_attrs)
+    {:ok, recipe} = Food.create_recipe(@create_attrs)
     recipe
   end
 
@@ -69,7 +64,7 @@ defmodule MealplannerWeb.RecipeControllerTest do
       assert redirected_to(conn) == Routes.recipe_path(conn, :show, recipe)
 
       conn = get(conn, Routes.recipe_path(conn, :show, recipe))
-      assert html_response(conn, 200) =~ "some updated directions"
+      assert html_response(conn, 200) =~ "some updated description"
     end
 
     test "renders errors when data is invalid", %{conn: conn, recipe: recipe} do
@@ -84,7 +79,6 @@ defmodule MealplannerWeb.RecipeControllerTest do
     test "deletes chosen recipe", %{conn: conn, recipe: recipe} do
       conn = delete(conn, Routes.recipe_path(conn, :delete, recipe))
       assert redirected_to(conn) == Routes.recipe_path(conn, :index)
-
       assert_error_sent 404, fn ->
         get(conn, Routes.recipe_path(conn, :show, recipe))
       end

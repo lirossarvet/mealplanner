@@ -1,21 +1,21 @@
 defmodule MealplannerWeb.RecipeController do
   use MealplannerWeb, :controller
 
-  alias Mealplanner.Meals
-  alias Mealplanner.Meals.Recipe
+  alias Mealplanner.Food
+  alias Mealplanner.Food.Recipe
 
   def index(conn, _params) do
-    recipes = Meals.list_recipes()
+    recipes = Food.list_recipes()
     render(conn, "index.html", recipes: recipes)
   end
 
   def new(conn, _params) do
-    changeset = Meals.change_recipe(%Recipe{})
+    changeset = Food.change_recipe(%Recipe{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"recipe" => recipe_params}) do
-    case Meals.create_recipe(recipe_params) do
+    case Food.create_recipe(recipe_params) do
       {:ok, recipe} ->
         conn
         |> put_flash(:info, "Recipe created successfully.")
@@ -27,20 +27,20 @@ defmodule MealplannerWeb.RecipeController do
   end
 
   def show(conn, %{"id" => id}) do
-    recipe = Meals.get_recipe!(id)
+    recipe = Food.get_recipe!(id)
     render(conn, "show.html", recipe: recipe)
   end
 
   def edit(conn, %{"id" => id}) do
-    recipe = Meals.get_recipe!(id)
-    changeset = Meals.change_recipe(recipe)
+    recipe = Food.get_recipe!(id)
+    changeset = Food.change_recipe(recipe)
     render(conn, "edit.html", recipe: recipe, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "recipe" => recipe_params}) do
-    recipe = Meals.get_recipe!(id)
+    recipe = Food.get_recipe!(id)
 
-    case Meals.update_recipe(recipe, recipe_params) do
+    case Food.update_recipe(recipe, recipe_params) do
       {:ok, recipe} ->
         conn
         |> put_flash(:info, "Recipe updated successfully.")
@@ -52,8 +52,8 @@ defmodule MealplannerWeb.RecipeController do
   end
 
   def delete(conn, %{"id" => id}) do
-    recipe = Meals.get_recipe!(id)
-    {:ok, _recipe} = Meals.delete_recipe(recipe)
+    recipe = Food.get_recipe!(id)
+    {:ok, _recipe} = Food.delete_recipe(recipe)
 
     conn
     |> put_flash(:info, "Recipe deleted successfully.")

@@ -8,13 +8,18 @@
   </li>
 
   <li>
-    <strong>Ingredients:</strong>
-    <%= @recipe.ingredients %>
+    <strong>Description:</strong>
+    <%= @recipe.description %>
   </li>
 
   <li>
     <strong>Source:</strong>
     <%= @recipe.source %>
+  </li>
+
+  <li>
+    <strong>Ingredients:</strong>
+    <%= @recipe.ingredients %>
   </li>
 
   <li>

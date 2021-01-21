@@ -4,11 +4,13 @@ defmodule Mealplanner.Repo.Migrations.CreateRecipes do
   def change do
     create table(:recipes) do
       add :title, :string
+      add :description, :text
+      add :source, :text
       add :ingredients, :text
-      add :url, :text
       add :directions, :text
 
       timestamps()
     end
+
   end
 end

@@ -1,12 +1,12 @@
-defmodule Mealplanner.Meals do
+defmodule Mealplanner.Food do
   @moduledoc """
-  The Meals context.
+  The Food context.
   """
 
   import Ecto.Query, warn: false
   alias Mealplanner.Repo
 
-  alias Mealplanner.Meals.Recipe
+  alias Mealplanner.Food.Recipe
 
   @doc """
   Returns the list of recipes.
@@ -36,6 +36,22 @@ defmodule Mealplanner.Meals do
 
   """
   def get_recipe!(id), do: Repo.get!(Recipe, id)
+
+  @doc """
+  Gets a single recipe but without raising an error
+
+  Returns nil if the Recipe does not exist.
+
+  ## Examples
+
+      iex> get_recipe!(123)
+      %Recipe{}
+
+      iex> get_recipe!(456)
+      nil
+
+  """
+  def get_recipe(id), do: Repo.get(Recipe, id)
 
   @doc """
   Creates a recipe.

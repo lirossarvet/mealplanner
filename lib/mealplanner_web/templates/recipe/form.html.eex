@@ -9,6 +9,10 @@
   <%= text_input f, :title %>
   <%= error_tag f, :title %>
 
+  <%= label f, :description %>
+  <%= textarea f, :description %>
+  <%= error_tag f, :description %>
+
   <%= label f, :source %>
   <%= textarea f, :source %>
   <%= error_tag f, :source %>
