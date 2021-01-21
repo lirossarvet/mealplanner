@@ -6,8 +6,20 @@ defmodule Mealplanner.FoodTest do
   describe "recipes" do
     alias Mealplanner.Food.Recipe
 
-    @valid_attrs %{description: "some description", directions: "some directions", ingredients: "some ingredients", source: "some source", title: "some title"}
-    @update_attrs %{description: "some updated description", directions: "some updated directions", ingredients: "some updated ingredients", source: "some updated source", title: "some updated title"}
+    @valid_attrs %{
+      description: "some description",
+      directions: "some directions",
+      ingredients: "some ingredients",
+      source: "some source",
+      title: "some title"
+    }
+    @update_attrs %{
+      description: "some updated description",
+      directions: "some updated directions",
+      ingredients: "some updated ingredients",
+      source: "some updated source",
+      title: "some updated title"
+    }
     @invalid_attrs %{description: nil, directions: nil, ingredients: nil, source: nil, title: nil}
 
     def recipe_fixture(attrs \\ %{}) do

@@ -3,8 +3,20 @@ defmodule MealplannerWeb.RecipeControllerTest do
 
   alias Mealplanner.Food
 
-  @create_attrs %{description: "some description", directions: "some directions", ingredients: "some ingredients", source: "some source", title: "some title"}
-  @update_attrs %{description: "some updated description", directions: "some updated directions", ingredients: "some updated ingredients", source: "some updated source", title: "some updated title"}
+  @create_attrs %{
+    description: "some description",
+    directions: "some directions",
+    ingredients: "some ingredients",
+    source: "some source",
+    title: "some title"
+  }
+  @update_attrs %{
+    description: "some updated description",
+    directions: "some updated directions",
+    ingredients: "some updated ingredients",
+    source: "some updated source",
+    title: "some updated title"
+  }
   @invalid_attrs %{description: nil, directions: nil, ingredients: nil, source: nil, title: nil}
 
   def fixture(:recipe) do
@@ -79,6 +91,7 @@ defmodule MealplannerWeb.RecipeControllerTest do
     test "deletes chosen recipe", %{conn: conn, recipe: recipe} do
       conn = delete(conn, Routes.recipe_path(conn, :delete, recipe))
       assert redirected_to(conn) == Routes.recipe_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.recipe_path(conn, :show, recipe))
       end
