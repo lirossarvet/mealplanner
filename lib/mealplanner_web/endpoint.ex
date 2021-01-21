@@ -10,9 +10,9 @@ defmodule MealplannerWeb.Endpoint do
     signing_salt: "0FFzHT20"
   ]
 
-  socket "/socket", MealplannerWeb.UserSocket,
-    websocket: true,
-    longpoll: false
+  # socket "/socket", MealplannerWeb.UserSocket,
+  #   websocket: true,
+  #   longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
