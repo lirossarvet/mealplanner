@@ -10,9 +10,9 @@ defmodule MealplannerWeb.Endpoint do
     signing_salt: "0FFzHT20"
   ]
 
-  socket "/socket", MealplannerWeb.UserSocket,
-    websocket: true,
-    longpoll: false
+  # socket "/socket", MealplannerWeb.UserSocket,
+  #   websocket: true,
+  #   longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
@@ -26,7 +26,7 @@ defmodule MealplannerWeb.Endpoint do
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
-  plug Mealplanner.TracePlug
+  plug MealplannerWeb.TracePlug
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

@@ -18,7 +18,7 @@ defmodule MealplannerWeb.RecipeControllerTest do
   end
 
   setup %{conn: conn} do
-    %{conn: Plug.Test.init_test_session(conn, %{"logged_in" => "yes"})}
+    %{conn: login_conn(conn)}
   end
 
   describe "index" do
