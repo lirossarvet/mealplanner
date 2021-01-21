@@ -3,11 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Source</th>
-      <th>Ingredients</th>
-      <th>Directions</th>
+      <th><%= dgettext "recipes", "Title" %></th>
+      <th><%= dgettext "recipes", "Description" %></th>
+      <th><%= dgettext "recipes", "Source" %></th>
+      <th><%= dgettext "recipes", "Ingredients" %></th>
+      <th><%= dgettext "recipes", "Directions" %></th>
 
       <th></th>
     </tr>
@@ -22,13 +22,13 @@
       <td><%= recipe.directions %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.recipe_path(@conn, :show, recipe) %></span>
-        <span><%= link "Edit", to: Routes.recipe_path(@conn, :edit, recipe) %></span>
-        <span><%= link "Delete", to: Routes.recipe_path(@conn, :delete, recipe), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link gettext("Show"), to: Routes.recipe_path(@conn, :show, recipe) %></span>
+        <span><%= link gettext("Edit"), to: Routes.recipe_path(@conn, :edit, recipe) %></span>
+        <span><%= link gettext("Delete"), to: Routes.recipe_path(@conn, :delete, recipe), method: :delete, data: [confirm: gettext("Are you sure?")] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Recipe", to: Routes.recipe_path(@conn, :new) %></span>
+<span><%= link gettext("New %{type}", type: "Recipe"), to: Routes.recipe_path(@conn, :new) %></span>

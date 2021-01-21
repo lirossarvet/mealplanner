@@ -1,31 +1,31 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+      <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
     </div>
   <% end %>
 
-  <%= label f, :title %>
+  <%= label f, :title, dgettext("recipes", "Title") %>
   <%= text_input f, :title %>
   <%= error_tag f, :title %>
 
-  <%= label f, :description %>
+  <%= label f, :description, dgettext("recipes", "Description") %>
   <%= textarea f, :description %>
   <%= error_tag f, :description %>
 
-  <%= label f, :source %>
+  <%= label f, :source, dgettext("recipes", "Source") %>
   <%= textarea f, :source %>
   <%= error_tag f, :source %>
 
-  <%= label f, :ingredients %>
+  <%= label f, :ingredients, dgettext("recipes", "Ingredients") %>
   <%= textarea f, :ingredients %>
   <%= error_tag f, :ingredients %>
 
-  <%= label f, :directions %>
+  <%= label f, :directions, dgettext("recipes", "Directions") %>
   <%= textarea f, :directions %>
   <%= error_tag f, :directions %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit gettext("Save") %>
   </div>
 <% end %>

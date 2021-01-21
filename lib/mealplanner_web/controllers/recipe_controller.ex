@@ -18,7 +18,7 @@ defmodule MealplannerWeb.RecipeController do
     case Food.create_recipe(recipe_params) do
       {:ok, recipe} ->
         conn
-        |> put_flash(:info, "Recipe created successfully.")
+        |> put_flash(:info, gettext("%{type} created successfully", type: "Recipe"))
         |> redirect(to: Routes.recipe_path(conn, :show, recipe))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -43,7 +43,7 @@ defmodule MealplannerWeb.RecipeController do
     case Food.update_recipe(recipe, recipe_params) do
       {:ok, recipe} ->
         conn
-        |> put_flash(:info, "Recipe updated successfully.")
+        |> put_flash(:info, gettext("%{type} updated successfully", type: "Recipe"))
         |> redirect(to: Routes.recipe_path(conn, :show, recipe))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -56,7 +56,7 @@ defmodule MealplannerWeb.RecipeController do
     {:ok, _recipe} = Food.delete_recipe(recipe)
 
     conn
-    |> put_flash(:info, "Recipe deleted successfully.")
+    |> put_flash(:info, gettext("%{type} deleted successfully", type: "Recipe"))
     |> redirect(to: Routes.recipe_path(conn, :index))
   end
 end

@@ -1,0 +1,61 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/form.html.eex:12
+#: lib/mealplanner_web/templates/recipe/index.html.eex:7
+msgid "Description"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/show.html.eex:6
+msgid "Description:"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/form.html.eex:24
+#: lib/mealplanner_web/templates/recipe/index.html.eex:10
+msgid "Directions"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/show.html.eex:21
+msgid "Directions:"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/form.html.eex:20
+#: lib/mealplanner_web/templates/recipe/index.html.eex:9
+msgid "Ingredients"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/show.html.eex:16
+msgid "Ingredients:"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/form.html.eex:16
+#: lib/mealplanner_web/templates/recipe/index.html.eex:8
+msgid "Source"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/show.html.eex:11
+msgid "Source:"
+msgstr ""
+
+#, elixir-format
+#: lib/mealplanner_web/templates/recipe/form.html.eex:8
+#: lib/mealplanner_web/templates/recipe/index.html.eex:6
+msgid "Title"
+msgstr ""
