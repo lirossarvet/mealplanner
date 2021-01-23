@@ -10,6 +10,10 @@ use Mix.Config
 config :mealplanner,
   ecto_repos: [Mealplanner.Repo]
 
+config :mealplanner, Mealplanner.Repo,
+  migration_primary_key: [name: :id, type: :binary_id, default: {:fragment, "uuid_generate_v4()"}],
+  migration_timestamps: [type: :utc_datetime]
+
 # Configures the endpoint
 config :mealplanner, MealplannerWeb.Endpoint,
   url: [host: "localhost"],

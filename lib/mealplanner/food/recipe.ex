@@ -1,5 +1,5 @@
 defmodule Mealplanner.Food.Recipe do
-  use Ecto.Schema
+  use Mealplanner.UUIDSchema
   import Ecto.Changeset
 
   schema "recipes" do
